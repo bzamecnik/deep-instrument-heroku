@@ -1,0 +1,7 @@
+jsonpickle
+keras
+numpy
+pandas
+scikit-learn
+soundfile
+tensorflow

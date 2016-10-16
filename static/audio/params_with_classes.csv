@@ -1,0 +1,21 @@
+,midi_instrument,midi_number,volume,duration,tempo,id,name,desc,family_name,family_desc,tonal,harmonic,min_pitch,max_pitch
+0,16,72,0.6494381769575568,1.0,60,16,drawbar_organ,Drawbar Organ,organ,Organ,True,True,36.0,96.0
+1,40,98,0.7843727669597866,1.0,60,40,violin,Violin,strings,Strings,True,True,55.0,103.0
+2,3,81,0.5893121622714717,1.0,60,3,honky_tonk_piano,Honky-tonk Piano,piano,Piano,True,True,21.0,108.0
+3,63,90,0.7662868509159473,1.0,60,63,synthbrass_2,SynthBrass 2,brass,Brass,True,True,32.0,96.0
+4,31,56,0.8233457349079196,1.0,60,31,guitar_harmonics,Guitar harmonics,guitar,Guitar,True,True,40.0,85.0
+5,23,49,0.5710326880784891,1.0,60,23,tango_accordion,Tango Accordion,organ,Organ,True,True,40.0,96.0
+6,72,96,0.7906944811301059,1.0,60,72,piccolo,Piccolo,pipe,Pipe,True,True,74.0,102.0
+7,18,38,0.7395949684225192,1.0,60,18,rock_organ,Rock Organ,organ,Organ,True,True,36.0,96.0
+8,46,51,0.6932095553917723,1.0,60,46,orchestral_harp,Orchestral Harp,strings,Strings,True,True,24.0,103.0
+9,76,36,0.7202324732465425,1.0,60,76,blown_bottle,Blown Bottle,pipe,Pipe,True,True,32.0,96.0
+10,58,29,0.7023786643016191,1.0,60,58,tuba,Tuba,brass,Brass,True,True,28.0,58.0
+11,77,69,0.7211270179242326,1.0,60,77,shakuhachi,Shakuhachi,pipe,Pipe,True,True,56.0,104.0
+12,2,104,0.5150616391782494,1.0,60,2,electric_grand_piano,Electric Grand Piano,piano,Piano,True,True,21.0,108.0
+13,58,32,0.8880026566235051,1.0,60,58,tuba,Tuba,brass,Brass,True,True,28.0,58.0
+14,22,52,0.7754791896438075,1.0,60,22,harmonica,Harmonica,organ,Organ,True,True,48.0,96.0
+15,58,55,0.6905367023382392,1.0,60,58,tuba,Tuba,brass,Brass,True,True,28.0,58.0
+16,73,63,0.7646328909042466,1.0,60,73,flute,Flute,pipe,Pipe,True,True,60.0,96.0
+17,72,81,0.9784384505085048,1.0,60,72,piccolo,Piccolo,pipe,Pipe,True,True,74.0,102.0
+18,40,102,0.5879106543281756,1.0,60,40,violin,Violin,strings,Strings,True,True,55.0,103.0
+19,23,41,0.5591514185832408,1.0,60,23,tango_accordion,Tango Accordion,organ,Organ,True,True,40.0,96.0

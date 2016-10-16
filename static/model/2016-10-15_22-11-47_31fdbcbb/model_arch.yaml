@@ -1,0 +1,374 @@
+class_name: Model
+config:
+  input_layers:
+  - [input_1, 0, 0]
+  layers:
+  - class_name: InputLayer
+    config:
+      batch_input_shape: !!python/tuple [null, 44, 115]
+      input_dtype: float32
+      name: input_1
+      sparse: false
+    inbound_nodes: []
+    name: input_1
+  - class_name: Reshape
+    config:
+      name: reshape_1
+      target_shape: !!python/tuple [44, 115, 1]
+      trainable: true
+    inbound_nodes:
+    - - [input_1, 0, 0]
+    name: reshape_1
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_1, trainable: true}
+    inbound_nodes:
+    - - [reshape_1, 0, 0]
+    name: batchnormalization_1
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_1
+      nb_col: 3
+      nb_filter: 32
+      nb_row: 3
+      subsample: &id001 !!python/tuple [1, 1]
+      trainable: true
+    inbound_nodes:
+    - - [batchnormalization_1, 0, 0]
+    name: convolution2d_1
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_2, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_1, 0, 0]
+    name: batchnormalization_2
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_1, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_2, 0, 0]
+    name: elu_1
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_2
+      nb_col: 3
+      nb_filter: 32
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [elu_1, 0, 0]
+    name: convolution2d_2
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_3, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_2, 0, 0]
+    name: batchnormalization_3
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_2, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_3, 0, 0]
+    name: elu_2
+  - class_name: MaxPooling2D
+    config:
+      border_mode: valid
+      dim_ordering: tf
+      name: maxpooling2d_1
+      pool_size: &id002 !!python/tuple [2, 2]
+      strides: *id002
+      trainable: true
+    inbound_nodes:
+    - - [elu_2, 0, 0]
+    name: maxpooling2d_1
+  - class_name: Dropout
+    config: {name: dropout_1, p: 0.1, trainable: true}
+    inbound_nodes:
+    - - [maxpooling2d_1, 0, 0]
+    name: dropout_1
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_3
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [dropout_1, 0, 0]
+    name: convolution2d_3
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_4, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_3, 0, 0]
+    name: batchnormalization_4
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_3, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_4, 0, 0]
+    name: elu_3
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_4
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [elu_3, 0, 0]
+    name: convolution2d_4
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_5, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_4, 0, 0]
+    name: batchnormalization_5
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_4, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_5, 0, 0]
+    name: elu_4
+  - class_name: MaxPooling2D
+    config:
+      border_mode: valid
+      dim_ordering: tf
+      name: maxpooling2d_2
+      pool_size: *id002
+      strides: *id002
+      trainable: true
+    inbound_nodes:
+    - - [elu_4, 0, 0]
+    name: maxpooling2d_2
+  - class_name: Dropout
+    config: {name: dropout_2, p: 0.1, trainable: true}
+    inbound_nodes:
+    - - [maxpooling2d_2, 0, 0]
+    name: dropout_2
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_5
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [dropout_2, 0, 0]
+    name: convolution2d_5
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_6, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_5, 0, 0]
+    name: batchnormalization_6
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_5, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_6, 0, 0]
+    name: elu_5
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_6
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [elu_5, 0, 0]
+    name: convolution2d_6
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_7, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_6, 0, 0]
+    name: batchnormalization_7
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_6, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_7, 0, 0]
+    name: elu_6
+  - class_name: MaxPooling2D
+    config:
+      border_mode: valid
+      dim_ordering: tf
+      name: maxpooling2d_3
+      pool_size: *id002
+      strides: *id002
+      trainable: true
+    inbound_nodes:
+    - - [elu_6, 0, 0]
+    name: maxpooling2d_3
+  - class_name: Dropout
+    config: {name: dropout_3, p: 0.1, trainable: true}
+    inbound_nodes:
+    - - [maxpooling2d_3, 0, 0]
+    name: dropout_3
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_7
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [dropout_3, 0, 0]
+    name: convolution2d_7
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_8, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_7, 0, 0]
+    name: batchnormalization_8
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_7, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_8, 0, 0]
+    name: elu_7
+  - class_name: Convolution2D
+    config:
+      W_constraint: null
+      W_regularizer: null
+      activation: linear
+      activity_regularizer: null
+      b_constraint: null
+      b_regularizer: null
+      bias: true
+      border_mode: same
+      dim_ordering: tf
+      init: glorot_uniform
+      name: convolution2d_8
+      nb_col: 3
+      nb_filter: 64
+      nb_row: 3
+      subsample: *id001
+      trainable: true
+    inbound_nodes:
+    - - [elu_7, 0, 0]
+    name: convolution2d_8
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_9, trainable: true}
+    inbound_nodes:
+    - - [convolution2d_8, 0, 0]
+    name: batchnormalization_9
+  - class_name: ELU
+    config: {alpha: 1.0, name: elu_8, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_9, 0, 0]
+    name: elu_8
+  - class_name: MaxPooling2D
+    config:
+      border_mode: valid
+      dim_ordering: tf
+      name: maxpooling2d_4
+      pool_size: *id002
+      strides: *id002
+      trainable: true
+    inbound_nodes:
+    - - [elu_8, 0, 0]
+    name: maxpooling2d_4
+  - class_name: Dropout
+    config: {name: dropout_4, p: 0.1, trainable: true}
+    inbound_nodes:
+    - - [maxpooling2d_4, 0, 0]
+    name: dropout_4
+  - class_name: Flatten
+    config: {name: flatten_1, trainable: true}
+    inbound_nodes:
+    - - [dropout_4, 0, 0]
+    name: flatten_1
+  - class_name: Dense
+    config: {W_constraint: null, W_regularizer: null, activation: linear, activity_regularizer: null,
+      b_constraint: null, b_regularizer: null, bias: true, init: glorot_uniform, input_dim: null,
+      name: dense_1, output_dim: 7, trainable: true}
+    inbound_nodes:
+    - - [flatten_1, 0, 0]
+    name: dense_1
+  - class_name: BatchNormalization
+    config: {axis: -1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+      mode: 0, momentum: 0.99, name: batchnormalization_10, trainable: true}
+    inbound_nodes:
+    - - [dense_1, 0, 0]
+    name: batchnormalization_10
+  - class_name: Activation
+    config: {activation: softmax, name: activation_1, trainable: true}
+    inbound_nodes:
+    - - [batchnormalization_10, 0, 0]
+    name: activation_1
+  name: model_1
+  output_layers:
+  - [activation_1, 0, 0]
+keras_version: 1.1.0
