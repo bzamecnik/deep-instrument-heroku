@@ -1,5 +1,6 @@
 jsonpickle
 Flask==0.10.1
+gevent
 gunicorn
 keras
 numpy
