@@ -1,12 +1,17 @@
 from flask import Flask, redirect, render_template, request
 from gevent.wsgi import WSGIServer
 import glob
+import logging
 import os
+import sys
 
 from predict import InstrumentClassifier
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1 * 2**20
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 model_id = '2016-10-15_22-11-47_31fdbcbb'
 model_dir = 'static/model/' + model_id
