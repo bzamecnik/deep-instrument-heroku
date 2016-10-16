@@ -1,23 +1,29 @@
-# deep-instrument-heroku
+# Deep Instrument
 
-ML model to classify music instruments from audio - Heroku deployment.
+Deep learning model to classify music instrument groups from audio.
 
-- Instance of this application: http://deep-instrument.herokuapp.com/
-- Main repo (with training scripts etc.): https://github.com/bzamecnik/ml/tree/master/instrument-classification
+> [Try this app running on Heroku](http://deep-instrument.herokuapp.com/)!
+
+Upload an audio clip and see the predicted class. You can download a few text examples or provide you own clips.
+
+[![screenshot](screenshot.png)](http://deep-instrument.herokuapp.com/)
+
+This a Heroku deployment repo. Look at the main repo [bzamecnik/ml](https://github.com/bzamecnik/ml/tree/master/instrument-classification) to see the training scripts, etc.
+
+## Requirements
+
+```
+Python 3.4 (eg. via Anaconda), Keras, TensorFlow, etc.
+
+$ pip install -r requirements.txt
+```
 
 
 ## Run locally
 
 ```
-python main.py
-open http://localhost:5000
+$ python main.py && open http://localhost:5000
 ```
-
-### Try
-
-Upload an audio clip and see the predicted class.
-
-You can download a few text examples or provide you own clips.
 
 ## Deploy to Heroku
 
